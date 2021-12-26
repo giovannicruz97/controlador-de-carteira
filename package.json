@@ -1,0 +1,27 @@
+{
+  "name": "controlador-de-carteira",
+  "version": "1.0.0",
+  "description": "Controlador de ativos de uma carteira de ações",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev index.ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giovannicruz97/controlador-de-carteira.git"
+  },
+  "author": "Giovanni Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giovannicruz97/controlador-de-carteira/issues"
+  },
+  "homepage": "https://github.com/giovannicruz97/controlador-de-carteira#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
