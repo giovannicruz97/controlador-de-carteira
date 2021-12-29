@@ -6,6 +6,7 @@ export default class Portfolio {
 
     public constructor({ products }: { products: Product[] }) {
         this.products = products;
+        this.validateProductsTotalPercentage();
         this.totalValue = 0;
         products.forEach(product => this.totalValue += product.getTotalPrice());
     }
@@ -20,6 +21,12 @@ export default class Portfolio {
 
     public setProducts(products: Product[]): void {
         this.products = products;
+    }
+
+    public validateProductsTotalPercentage(): void {
+        let totalPercentage = 0;
+        this.products.forEach(product => totalPercentage += product.getdesiredAllocationPercentage());
+        if (totalPercentage !== 100) throw new Error('The sum of the percentages of the products in the portfolio is greater than 100%')
     }
 
     public calculateRebalancing(): { ticker: string; difference: number; operation: string }[] {

@@ -1,7 +1,5 @@
 import products from '../products.json';
 import RebalancePortfolio from "./RebalancePortfolio";
-import Product from '../entities/Product';
-import Portfolio from "../entities/Portfolio";
 import FinancialAssetRepository from "../repositories/FinancialAssetRepository";
 import FinancialAssetRepositoryInMemory from "../interface_adapters/repositories/memory/FinancialAssetRepositoryInMemory";
 
