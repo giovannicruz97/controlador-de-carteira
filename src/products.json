@@ -1,0 +1,12 @@
+[
+    {
+        "ticker": "ivvb11",
+        "currentQuantity": 3,
+        "desiredAllocationPercentage": 50
+    },
+    {
+        "ticker": "bova11",
+        "currentQuantity": 3,
+        "desiredAllocationPercentage": 50
+    }
+]
