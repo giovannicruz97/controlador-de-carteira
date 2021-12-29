@@ -2,13 +2,15 @@ import { Type } from './Type'
 
 export default class FinancialAsset {
     private name: string;
-    private ticker?: string;
+    private ticker: string;
     private type: Type;
+    private price: number;
 
-    public constructor({ name, ticker, type }: { name: string; ticker?: string; type: Type }) {
+    public constructor({ name, ticker, type, price }: { name: string; ticker: string; type: Type; price: number }) {
         this.name = name;
         this.ticker = ticker;
         this.type = type;
+        this.price = price;
     }
 
     public getName(): string {
@@ -33,5 +35,13 @@ export default class FinancialAsset {
 
     public setType(type: Type): void {
         this.type = type;
+    }
+
+    public getPrice(): number {
+        return this.price;
+    }
+
+    public setPrice(price: number): void {
+        this.price = price;
     }
 }
