@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Custom
-./src/products.json
+src/products.json
