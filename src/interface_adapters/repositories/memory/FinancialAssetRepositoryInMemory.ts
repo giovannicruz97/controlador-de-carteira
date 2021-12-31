@@ -7,8 +7,8 @@ export default class FinancialAssetRepositoryInMemory implements FinancialAssetR
 
     public constructor() {
         this.financialAssets = [
-            new FinancialAsset({ name: 'IVVB11', ticker: 'ivvb11', price: 294.03, type: Type.ETF }),
-            new FinancialAsset({ name: 'BOVA11', ticker: 'bova11', price: 101.06, type: Type.ETF })
+            new FinancialAsset({ name: 'IVVB11', ticker: 'ivvb11', price: 297.75, type: Type.ETF }),
+            new FinancialAsset({ name: 'BOVA11', ticker: 'bova11', price: 100.8, type: Type.ETF })
         ];
     }
 
