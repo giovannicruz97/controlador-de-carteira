@@ -2,15 +2,16 @@ import products from '../products.json';
 import RebalancePortfolio from "./RebalancePortfolio";
 import FinancialAssetRepository from "../repositories/FinancialAssetRepository";
 import FinancialAssetRepositoryInMemory from "../interface_adapters/repositories/memory/FinancialAssetRepositoryInMemory";
+import { Operation } from '../entities/Operation';
 
 let financialAssetRepository: FinancialAssetRepository;
 beforeAll(() => {
     financialAssetRepository = new FinancialAssetRepositoryInMemory();
 })
 
-test('Calculate difference between products and return rebalance list', async () => {
+test('Calculate currentAllocationPercentage between products and return rebalance list', async () => {
     const useCase = new RebalancePortfolio({ financialAssetRepository });
     const response = await useCase.execute({ rebalancePortfolioInput: products });
-    const expected = [{ "difference": 74.42101799589966, "operation": "sell", "ticker": "ivvb11" }, { "difference": 25.578982004100332, "operation": "buy", "ticker": "bova11" }];
-    expect(response).toEqual(expected);
+    const expected = [{ ticker: 'bova11', currentAllocationPercentage: 25.578982004100332, operation: Operation.BUY, quantity: 0, targetAllocationPercentage: 50 }];
+    expect(expected).toEqual(response);
 });

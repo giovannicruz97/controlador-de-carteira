@@ -1,3 +1,4 @@
+import { Operation } from '../entities/Operation';
 import Portfolio from '../entities/Portfolio';
 import Product from '../entities/Product';
 import FinancialAssetRepository from '../repositories/FinancialAssetRepository';
@@ -15,9 +16,9 @@ export default class RebalancePortfolio {
         const products = await Promise.all(rebalancePortfolioInput.map(async product => new Product({
             financialAsset: await this.financialAssetRepository.getByTicker({ ticker: product.ticker }),
             currentQuantity: product.currentQuantity,
-            desiredAllocationPercentage: product.desiredAllocationPercentage
+            targetAllocationPercentage: product.targetAllocationPercentage
         })));
         const portfolio = new Portfolio({ products });
-        return portfolio.calculateRebalancing();
+        return portfolio.calculateRebalancing({ contribution: 0 });
     }
 }

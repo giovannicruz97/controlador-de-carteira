@@ -1,3 +1,4 @@
+import { Operation } from './Operation';
 import Product from "./Product";
 
 export default class Portfolio {
@@ -25,15 +26,23 @@ export default class Portfolio {
 
     public validateProductsTotalPercentage(): void {
         let totalPercentage = 0;
-        this.products.forEach(product => totalPercentage += product.getdesiredAllocationPercentage());
+        this.products.forEach(product => totalPercentage += product.getTargetAllocationPercentage());
+        totalPercentage = Math.floo r(totalPercentage);
         if (totalPercentage !== 100) throw new Error('The sum of the percentages of the products in the portfolio is greater than 100%')
     }
 
-    public calculateRebalancing(): { ticker: string; difference: number; operation: string }[] {
-        return this.products.map(product => {
-            const difference = (product.getTotalPrice() / this.getTotalValue()) * 100;
-            const operation = difference > product.getdesiredAllocationPercentage() ? 'sell' : 'buy';
-            return { ticker: product.getFinancialAsset().getTicker(), difference, operation };
-        });
+    public calculateRebalancing({ contribution }: { contribution: number }): { ticker: string; currentAllocationPercentage: number; targetAllocationPercentage: number; quantity: number; operation: Operation }[] {
+        return this.products
+            .map(product => {
+                const currentAllocationPercentage = (product.getTotalPrice() / this.getTotalValue()) * 100;
+                const targetAllocationInValueWithContribution = (this.getTotalValue() + contribution) * (product.getTargetAllocationPercentage() / 100);
+                const targetQuantity = targetAllocationInValueWithContribution / product.getTotalPrice();
+                const quantity = Math.floor(product.getcurrentQuantity() - targetQuantity);
+                const operation = currentAllocationPercentage > product.getTargetAllocationPercentage() ? Operation.SELL : Operation.BUY;
+                return { ticker: product.getFinancialAsset().getTicker(), targetAllocationPercentage: product.getTargetAllocationPercentage(), currentAllocationPercentage, quantity, operation };
+            })
+            .sort((a, b) => {
+                return a.currentAllocationPercentage - b.currentAllocationPercentage;
+            });
     }
 }

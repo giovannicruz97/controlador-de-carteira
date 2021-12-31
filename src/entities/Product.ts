@@ -2,12 +2,12 @@ import FinancialAsset from "./FinancialAsset";
 
 export default class Product {
     private financialAsset: FinancialAsset;
-    private desiredAllocationPercentage: number;
+    private targetAllocationPercentage: number;
     private currentQuantity: number;
 
-    public constructor({ financialAsset, desiredAllocationPercentage, currentQuantity }: { financialAsset: FinancialAsset; desiredAllocationPercentage: number; currentQuantity: number }) {
+    public constructor({ financialAsset, targetAllocationPercentage, currentQuantity }: { financialAsset: FinancialAsset; targetAllocationPercentage: number; currentQuantity: number }) {
         this.financialAsset = financialAsset;
-        this.desiredAllocationPercentage = desiredAllocationPercentage;
+        this.targetAllocationPercentage = targetAllocationPercentage;
         this.currentQuantity = currentQuantity;
     }
 
@@ -19,12 +19,12 @@ export default class Product {
         this.financialAsset = financialAsset;
     }
 
-    public getdesiredAllocationPercentage(): number {
-        return this.desiredAllocationPercentage;
+    public getTargetAllocationPercentage(): number {
+        return this.targetAllocationPercentage;
     }
 
-    public setdesiredAllocationPercentage(desiredAllocationPercentage: number): void {
-        this.desiredAllocationPercentage = desiredAllocationPercentage;
+    public setTargetAllocationPercentage(targetAllocationPercentage: number): void {
+        this.targetAllocationPercentage = targetAllocationPercentage;
     }
 
     public getcurrentQuantity(): number {
