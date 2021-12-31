@@ -27,15 +27,15 @@ export default class Product {
         this.targetAllocationPercentage = targetAllocationPercentage;
     }
 
-    public getcurrentQuantity(): number {
+    public getCurrentQuantity(): number {
         return this.currentQuantity;
     }
 
-    public setcurrentQuantity(currentQuantity: number): void {
+    public setCurrentQuantity(currentQuantity: number): void {
         this.currentQuantity = currentQuantity;
     }
 
     public getTotalPrice(): number {
-        return this.getcurrentQuantity() * this.getFinancialAsset().getPrice();
+        return this.getCurrentQuantity() * this.getFinancialAsset().getPrice();
     }
 }

@@ -1,0 +1,7 @@
+[
+    {
+        "ticker": "ticker",
+        "currentQuantity": 10,
+        "targetAllocationPercentage": 100
+    },
+]
