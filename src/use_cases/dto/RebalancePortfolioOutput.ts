@@ -1,11 +1,15 @@
 export default class RebalancePortfolioOutput {
     public ticker: string;
-    public difference: number;
+    public currentAllocationPercentage: number;
+    public targetAllocationPercentage: number;
     public operation: string;
+    public quantity: number;
 
-    public constructor({ ticker, difference, operation }: { ticker: string; difference: number; operation: string }) {
+    public constructor({ ticker, currentAllocationPercentage, targetAllocationPercentage, operation, quantity }: { ticker: string; currentAllocationPercentage: number; targetAllocationPercentage: number; operation: string; quantity: number; }) {
         this.ticker = ticker;
-        this.difference = difference;
+        this.currentAllocationPercentage = currentAllocationPercentage;
         this.operation = operation;
+        this.targetAllocationPercentage = targetAllocationPercentage;
+        this.quantity = quantity;
     }
 }
