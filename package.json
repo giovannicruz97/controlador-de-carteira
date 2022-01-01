@@ -27,6 +27,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "cli-table": "^0.3.11"
   }
 }
