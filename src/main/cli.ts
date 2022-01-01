@@ -6,7 +6,7 @@ import RebalancePortfolio from '../use_cases/RebalancePortfolio';
 
 (async () => {
     const table = new Table({
-        head: ['Ticker', 'Target (%)', 'Current (%)', 'Quantity', 'Operation']
+        head: ['Ticker', 'Target (%)', 'Current (%)', 'Quantity', 'Operation', 'Operation Cost']
     });
     const financialAssetRepository = new FinancialAssetRepositoryInMemory();
     const useCase = new RebalancePortfolio({ financialAssetRepository });
@@ -17,6 +17,7 @@ import RebalancePortfolio from '../use_cases/RebalancePortfolio';
         values[0] = values[0].toUpperCase();
         values[1] = values[1].toFixed(2);
         values[2] = values[2].toFixed(2);
+        values[5] = `R$${values[5].toFixed(2)}`;
         table.push(values);
     });
     console.log(table.toString());
