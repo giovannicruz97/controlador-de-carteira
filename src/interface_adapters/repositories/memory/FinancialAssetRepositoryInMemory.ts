@@ -7,7 +7,7 @@ export default class FinancialAssetRepositoryInMemory implements FinancialAssetR
 
     public constructor() {
         this.financialAssets = [
-            new FinancialAsset({ name: 'IVVB11', ticker: 'ivvb11', price: 297.75, type: Type.ETF }),
+            new FinancialAsset({ name: 'IVVB11', ticker: 'ivvb11', price: 280.30, type: Type.ETF }),
             new FinancialAsset({ name: 'BOVA11', ticker: 'bova11', price: 100.8, type: Type.ETF }),
             new FinancialAsset({
                 name: 'CLUBEDOVALOR DEEP VALUE INVESTING FICFIA', ticker: 'cdv', price: 1, type: Type.STOCK_INVESTIMENT_FUND
@@ -19,14 +19,27 @@ export default class FinancialAssetRepositoryInMemory implements FinancialAssetR
             new FinancialAsset({ name: 'RBRY11 ', ticker: 'rbry11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 104.60 }),
             new FinancialAsset({ name: 'RNGO11', ticker: 'rngo11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 52.97 }),
             new FinancialAsset({ name: 'XPCM11', ticker: 'xpcm11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 22.23 }),
-            new FinancialAsset({ name: 'XPPR11', ticker: 'xppr11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 67.50 }),
+            new FinancialAsset({ name: 'XPPR11', ticker: 'xppr11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 66.60 }),
             new FinancialAsset({ name: 'OULG11', ticker: 'oulg11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 57.80 }),
             new FinancialAsset({ name: 'FEXC11', ticker: 'fexc11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 89 }),
             new FinancialAsset({ name: 'OUFF11', ticker: 'ouff11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 72.25 }),
             new FinancialAsset({ name: 'BRCR11', ticker: 'brcr11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 72.69 }),
-            new FinancialAsset({ name: 'RECT11', ticker: 'rect11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 73.51 }),
+            new FinancialAsset({ name: 'RECT11', ticker: 'rect11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 70.38 }),
             new FinancialAsset({ name: 'XPCI11', ticker: 'xpci11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 96.81 }),
             new FinancialAsset({ name: 'VGIR11', ticker: 'vgir11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 98.70 }),
+            new FinancialAsset({ name: 'RBCO11', ticker: 'rbco11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 57.00 }),
+            new FinancialAsset({ name: 'QAGR11', ticker: 'qagr11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 51.25 }),
+            new FinancialAsset({ name: 'MORE11', ticker: 'more11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 76.14 }),
+            new FinancialAsset({ name: 'RBHG11', ticker: 'rbhg11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 87.70 }),
+            new FinancialAsset({ name: 'CPFF11', ticker: 'cpff11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 69.87 }),
+            new FinancialAsset({ name: 'PATL11', ticker: 'patl11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 74.95 }),
+            new FinancialAsset({ name: 'AIEC11', ticker: 'aiec11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 76.34 }),
+            new FinancialAsset({ name: 'EQIN11', ticker: 'eqin11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 93.39 }),
+            new FinancialAsset({ name: 'GGRC11', ticker: 'ggrc11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 114.90 }),
+            new FinancialAsset({ name: 'HBRH11', ticker: 'hbrh11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 87.98 }),
+            new FinancialAsset({ name: 'SARE11', ticker: 'sare11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 69.99 }),
+            new FinancialAsset({ name: 'OUJP11', ticker: 'oujp11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 88.22 }),
+            new FinancialAsset({ name: 'NEWL11', ticker: 'newl11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 102.40 }),
         ];
     }
 

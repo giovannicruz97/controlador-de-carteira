@@ -27,16 +27,18 @@ test('Calculate currentAllocationPercentage between products and return rebalanc
             ticker: 'bova11',
             currentAllocationPercentage: 25.291682348513362,
             operation: Operation.BUY,
-            quantity: 8,
+            quantity: 5,
+            operationCost: 504,
             targetAllocationPercentage: 50
         },
         {
             ticker: 'ivvb11',
             currentAllocationPercentage: 74.70831765148664,
             operation: Operation.SELL,
-            quantity: 9,
+            quantity: 8,
+            operationCost: 2382,
             targetAllocationPercentage: 50,
         }
     ];
-    expect(expected).toEqual(response);
+    expect(response).toEqual(expected);
 });

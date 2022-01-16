@@ -28,5 +28,6 @@ Para adicão de Fundos de investimentos em ações ou multimercados que não sã
 Para acessar o rebalanceamento via CLI, execute: `npm run cli`.
 
 ## Próximos passos
+- [ ] Adicionar suporte à ativos com quantidade 0
 - [ ] Adicionar fornecedor autómatico de cotações dos ativos
 - [ ] Adicionar suporte para Criptomoedas, já que não existe pregão para esses ativos
