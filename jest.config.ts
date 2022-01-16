@@ -6,6 +6,7 @@ const config: Config.InitialOptions = {
     '^.+\\.ts?$': 'ts-jest',
   },
   preset: 'ts-jest',
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  modulePathIgnorePatterns: ['<rootDir>/dist/']
 };
 export default config;

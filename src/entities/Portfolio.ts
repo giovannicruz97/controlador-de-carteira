@@ -35,14 +35,16 @@ export default class Portfolio {
     public calculateRebalancing({ contribution }: { contribution: number }): { ticker: string; currentAllocationPercentage: number; targetAllocationPercentage: number; quantity: number; operation: Operation, operationCost: number }[] {
         return this.products
             .map(product => {
-                const currentAllocationPercentage = (product.getTotalPrice() / this.getTotalValue()) * 100;
+                let currentAllocationPercentage = 0;
+                if (product.getCurrentQuantity() > 0) currentAllocationPercentage = (product.getTotalPrice() / this.getTotalValue()) * 100;
                 const targetAllocationInValueWithContribution = (this.getTotalValue() + contribution) * (product.getTargetAllocationPercentage() / 100);
-                const targetQuantity = targetAllocationInValueWithContribution / product.getTotalPrice();
-                let quantity = Math.floor(product.getCurrentQuantity() - targetQuantity);
-                if (product.getFinancialAsset().getType() === Type.STOCK_INVESTIMENT_FUND) quantity = targetAllocationInValueWithContribution - product.getCurrentQuantity();
+                let targetQuantity = targetAllocationInValueWithContribution / product.getFinancialAsset().getPrice();
+                if (product.getCurrentQuantity() > 0) targetQuantity = targetAllocationInValueWithContribution / product.getTotalPrice();
+                let quantityNeededToTarget = Math.abs(Math.floor(product.getCurrentQuantity() - targetQuantity));
+                if (product.getFinancialAsset().getType() === Type.STOCK_INVESTIMENT_FUND) quantityNeededToTarget = targetAllocationInValueWithContribution - product.getCurrentQuantity();
                 const operation = currentAllocationPercentage > product.getTargetAllocationPercentage() ? Operation.SELL : Operation.BUY;
-                const operationCost = quantity * product.getFinancialAsset().getPrice();
-                return { ticker: product.getFinancialAsset().getTicker(), targetAllocationPercentage: product.getTargetAllocationPercentage(), currentAllocationPercentage, quantity, operation, operationCost };
+                const operationCost = quantityNeededToTarget * product.getFinancialAsset().getPrice();
+                return { ticker: product.getFinancialAsset().getTicker(), targetAllocationPercentage: product.getTargetAllocationPercentage(), currentAllocationPercentage, quantity: quantityNeededToTarget, operation, operationCost };
             })
             .sort((a, b) => {
                 return a.currentAllocationPercentage - b.currentAllocationPercentage;

@@ -8,15 +8,14 @@ import RebalancePortfolio from '../use_cases/RebalancePortfolio';
     const table = new Table({
         head: ['Ticker', 'Target (%)', 'Current (%)', 'Quantity', 'Operation', 'Operation Cost']
     });
+    const contribution = Number(process.argv[2]);
     const financialAssetRepository = new FinancialAssetRepositoryInMemory();
     const useCase = new RebalancePortfolio({ financialAssetRepository });
     const rebalancePortfolio = new RebalancePortfolioController({ useCase });
-    const rebalancing = await rebalancePortfolio.handle(products);
+    const rebalancing = await rebalancePortfolio.handle({ assets: products, contribution });
     rebalancing?.forEach(product => {
         const values = Object.values(product);
         values[0] = values[0].toUpperCase();
-        values[1] = values[1].toFixed(2);
-        values[2] = values[2].toFixed(2);
         values[5] = `R$${values[5].toFixed(2)}`;
         table.push(values);
     });
