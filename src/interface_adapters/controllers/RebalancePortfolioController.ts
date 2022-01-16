@@ -1,3 +1,4 @@
+import RebalancePortfolioInput from "../../use_cases/dto/RebalancePortfolioInput";
 import RebalancePortfolio from "../../use_cases/RebalancePortfolio";
 
 export default class RebalancePortfolioController {
@@ -9,7 +10,8 @@ export default class RebalancePortfolioController {
 
     public async handle(payload: any) {
         try {
-            return this.useCase.execute(payload);
+            const rebalancePortfolioInput = new RebalancePortfolioInput({ assets: payload.assets, contribution: payload.contribution });
+            return this.useCase.execute(rebalancePortfolioInput);
         } catch (error) {
             console.error(error);
         }

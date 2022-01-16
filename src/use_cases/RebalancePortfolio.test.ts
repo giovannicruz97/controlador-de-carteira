@@ -43,3 +43,23 @@ test('Calculate currentAllocationPercentage between products and return rebalanc
     ];
     expect(response).toEqual(expected);
 });
+
+test.only('Calculate rebalacing for products with quantity 0 (zero)', async () => {
+    const useCase = new RebalancePortfolio({ financialAssetRepository });
+    const response = await useCase.execute({
+        assets: [{
+            ticker: "ivvb11",
+            currentQuantity: 0,
+            targetAllocationPercentage: 50
+        },
+        {
+            ticker: 'bova11',
+            currentQuantity: 0,
+            targetAllocationPercentage: 50
+        }],
+        contribution: 1000,
+    });
+    const [ivvb11, bova11] = response;
+    expect(ivvb11.quantity).toBe(2);
+    expect(bova11.quantity).toBe(5);
+});
