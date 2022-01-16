@@ -9,7 +9,7 @@ export default class RebalancePortfolioController {
 
     public async handle(payload: any) {
         try {
-            return this.useCase.execute({ rebalancePortfolioInput: payload });
+            return this.useCase.execute(payload);
         } catch (error) {
             console.error(error);
         }

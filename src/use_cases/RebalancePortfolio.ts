@@ -12,13 +12,13 @@ export default class RebalancePortfolio {
         this.financialAssetRepository = financialAssetRepository;
     }
 
-    public async execute({ rebalancePortfolioInput }: { rebalancePortfolioInput: RebalancePortfolioInput[] }): Promise<RebalancePortfolioOutput[]> {
-        const products = await Promise.all(rebalancePortfolioInput.map(async product => new Product({
+    public async execute({ assets, contribution }: RebalancePortfolioInput): Promise<RebalancePortfolioOutput[]> {
+        const products = await Promise.all(assets.map(async product => new Product({
             financialAsset: await this.financialAssetRepository.getByTicker({ ticker: product.ticker }),
             currentQuantity: product.currentQuantity,
             targetAllocationPercentage: product.targetAllocationPercentage
         })));
         const portfolio = new Portfolio({ products });
-        return portfolio.calculateRebalancing({ contribution: 0 });
+        return portfolio.calculateRebalancing({ contribution });
     }
 }
