@@ -40,6 +40,7 @@ export default class FinancialAssetRepositoryInMemory implements FinancialAssetR
             new FinancialAsset({ name: 'SARE11', ticker: 'sare11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 69.99 }),
             new FinancialAsset({ name: 'OUJP11', ticker: 'oujp11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 88.22 }),
             new FinancialAsset({ name: 'NEWL11', ticker: 'newl11', type: Type.REAL_ESTATE_INVESTIMENT_FUND, price: 102.40 }),
+            new FinancialAsset({ name: 'HASH11', ticker: 'hash11', type: Type.ETF, price: 43.25 })
         ];
     }
 
