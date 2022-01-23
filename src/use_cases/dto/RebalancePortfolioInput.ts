@@ -2,6 +2,7 @@ interface Asset {
     ticker: string;
     currentQuantity: number;
     targetAllocationPercentage: number;
+    url: string;
 };
 
 export default class RebalancePortfolioInput {

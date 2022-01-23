@@ -1,5 +1,6 @@
 import FinancialAsset from "../entities/FinancialAsset";
+import { Type } from "../entities/Type";
 
 export default interface FinancialAssetRepository {
-    getByTicker({ ticker }: { ticker: string }): Promise<FinancialAsset>
+    getByTicker({ ticker, url }: { ticker: string; url: string; }): Promise<FinancialAsset>
 };

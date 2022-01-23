@@ -23,10 +23,6 @@ Para instalar execute os seguintes passos:
 
 ## Como executar?
 
-Atualmente, só foi implementado via CLI o caso de uso de rebalanceamento de carteira. Para isso, renomeie o arquivo `products.json.example` para `products.json` e preencha a lista com os seus ativos. Outro passo necessário é inserção  da base da dados com os preços do último fechamento de mercado no arquivo `FinancialRepositoryInMemory.ts`. É recomendado executar esse software com o pregão fechado, já que não existe uma busca dinâmica pelos preços médios atuais dos ativos.
+Atualmente, só foi implementado via CLI o caso de uso de rebalanceamento de carteira. Para isso, renomeie o arquivo `products.json.example` para `products.json` e preencha a lista com os seus ativos. O campo `url` deve ser preenchido com a uri do ativo em questão dentro do site "Status Invest", ou seja, se você tiver um ativo na URL https://statusinvest.com.br/etfs/ivvb11, o campo deve ser preenchido com "etfs/ivvb11". É recomendado executar esse software com o pregão fechado, pois a atualização da fonte de dados não é ao vivo.
 Para adicão de Fundos de investimentos em ações ou multimercados que não são cotizados, crie o ativo financeiro com preço (price) igual à `1` e adicione o valor atual alocado como quantidade `quantity`.
 Para acessar o rebalanceamento via CLI, execute: `npm run cli VALOR_DE_APORTE`.
-
-## Próximos passos
-- [ ] Adicionar fornecedor autómatico de cotações dos ativos
-- [ ] Adicionar suporte para Criptomoedas, já que não existe pregão para esses ativos

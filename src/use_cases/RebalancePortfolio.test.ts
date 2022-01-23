@@ -14,17 +14,20 @@ test('Calculate currentAllocationPercentage between products and return rebalanc
         assets: [{
             ticker: "ivvb11",
             currentQuantity: 10,
-            targetAllocationPercentage: 50
+            targetAllocationPercentage: 50,
+            url: 'mock'
         },
         {
             ticker: 'bova11',
             currentQuantity: 10,
-            targetAllocationPercentage: 50
+            targetAllocationPercentage: 50,
+            url: 'mock'
         }],
         contribution: 0,
     });
     const expected = [
         {
+            name: 'BOVA11',
             ticker: 'bova11',
             currentAllocationPercentage: 26.449750721595382,
             operation: Operation.BUY,
@@ -33,6 +36,7 @@ test('Calculate currentAllocationPercentage between products and return rebalanc
             targetAllocationPercentage: 50
         },
         {
+            name: 'IVVB11',
             ticker: 'ivvb11',
             currentAllocationPercentage: 73.55024927840462,
             operation: Operation.SELL,
@@ -44,22 +48,24 @@ test('Calculate currentAllocationPercentage between products and return rebalanc
     expect(response).toEqual(expected);
 });
 
-test.only('Calculate rebalacing for products with quantity 0 (zero)', async () => {
+test('Calculate rebalacing for products with quantity 0 (zero)', async () => {
     const useCase = new RebalancePortfolio({ financialAssetRepository });
     const response = await useCase.execute({
         assets: [{
             ticker: "ivvb11",
             currentQuantity: 0,
-            targetAllocationPercentage: 50
+            targetAllocationPercentage: 50,
+            url: 'mock'
         },
         {
             ticker: 'bova11',
             currentQuantity: 0,
-            targetAllocationPercentage: 50
+            targetAllocationPercentage: 50,
+            url: 'mock'
         }],
         contribution: 1000,
     });
     const [ivvb11, bova11] = response;
-    expect(ivvb11.quantity).toBe(2);
-    expect(bova11.quantity).toBe(5);
+    expect(ivvb11.quantity).toBe(1);
+    expect(bova11.quantity).toBe(4);
 });
