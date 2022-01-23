@@ -2,6 +2,7 @@
     {
         "ticker": "ticker",
         "currentQuantity": 10,
-        "targetAllocationPercentage": 100
+        "targetAllocationPercentage": 100,
+        "url": "fundos-imobiliarios/ticker"
     },
 ]

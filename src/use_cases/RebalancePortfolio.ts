@@ -14,7 +14,7 @@ export default class RebalancePortfolio {
 
     public async execute({ assets, contribution }: RebalancePortfolioInput): Promise<RebalancePortfolioOutput[]> {
         const products = await Promise.all(assets.map(async product => new Product({
-            financialAsset: await this.financialAssetRepository.getByTicker({ ticker: product.ticker }),
+            financialAsset: await this.financialAssetRepository.getByTicker({ ticker: product.ticker, url: product.url }),
             currentQuantity: product.currentQuantity,
             targetAllocationPercentage: product.targetAllocationPercentage
         })));

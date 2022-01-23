@@ -44,7 +44,7 @@ export default class FinancialAssetRepositoryInMemory implements FinancialAssetR
         ];
     }
 
-    public async getByTicker({ ticker }: { ticker: string; }): Promise<FinancialAsset> {
+    public async getByTicker({ ticker, url }: { ticker: string; url: string }): Promise<FinancialAsset> {
         const financialAsset = this.financialAssets.find(financialAsset => financialAsset.getTicker() === ticker);
         if (!financialAsset) throw new Error(`Financial asset not find by ticker ${ticker}`);
         return financialAsset;
